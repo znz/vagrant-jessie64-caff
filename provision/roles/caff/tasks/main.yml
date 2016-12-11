@@ -1,0 +1,11 @@
+- apt: name=signing-party
+- apt: name=haveged
+- template: src=caffrc.j2 dest=/home/vagrant/.caffrc owner=vagrant group=vagrant mode=0644
+- file: path=/home/vagrant/.gnupg state=directory owner=vagrant group=vagrant mode=0700
+- template: src=gpg.conf.j2 dest=/home/vagrant/.gnupg/gpg.conf owner=vagrant group=vagrant mode=0600
+- copy: src=/home/.gnupg/pubring.gpg dest=/home/vagrant/.gnupg/pubring.gpg owner=vagrant group=vagrant mode=0600
+- copy: src=/home/.gnupg/secring.gpg dest=/home/vagrant/.gnupg/secring.gpg owner=vagrant group=vagrant mode=0600
+- copy: src=/home/.gnupg/trustdb.gpg dest=/home/vagrant/.gnupg/trustdb.gpg owner=vagrant group=vagrant mode=0600
+- file: path=/home/vagrant/.caff state=directory owner=vagrant group=vagrant mode=0700
+- file: path=/home/vagrant/.caff/gnupghome state=directory owner=vagrant group=vagrant mode=0700
+- template: src=caff-gpg.conf.j2 dest=/home/vagrant/.caff/gnupghome/gpg.conf owner=vagrant group=vagrant mode=0600

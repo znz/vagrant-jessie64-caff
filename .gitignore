@@ -1,0 +1,3 @@
+/.vagrant/
+/provision/config.yml
+/provision/roles/*.*
